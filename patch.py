@@ -35,3 +35,5 @@ print test_pandas
 # print type(pd.to_datetime(str(test_pandas.index.values[0])).strftime('%Y.%m.%d'))
 # print pd.to_datetime(str(test_pandas.index.values[0])).strftime('%Y.%m.%d')
 print parse_time(pd.to_datetime(str(test_pandas.index.values[0])).strftime('%Y/%m/%d') )	#Change DONE HERE
+
+#parse_time(...) now works fine
