@@ -4,6 +4,8 @@ import datetime
 import numpy as np
 from tzlocal import get_localzone
 
+# this is just a way around through the same example as given in the issue
+
 tz = get_localzone()
 from sunpy.time import parse_time
 
