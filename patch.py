@@ -38,5 +38,25 @@ print test_pandas
 # print pd.to_datetime(str(test_pandas.index.values[0])).strftime('%Y.%m.%d')
 print parse_time(pd.to_datetime(str(test_pandas.index.values[0])).strftime('%Y/%m/%d') )	#Change DONE HERE
 
-#need to add support for numpy.datetime64 instances like 2015-03-18T12:49:22.979471000+0000 before using __str__() to parse them
-#parse_time(...) now works fine
+#need to add support for numpy.datetime64 instances like '2015-03-18T12:49:22.979471000+0000' before using __str__() to parse them
+
+'''@dpshelio 
+Ok about the first issue that it takes away timezone can you explain how I register timezone? I kinda dont know this new format '%Y': '(?P\d{4})', 
+the above happens because if you see parse_time source code then at the else condition in the end of its function definition http://docs.sunpy.org/en/latest/_modules/sunpy/time/time.html#parse_time
+else:
+	if '.' in time_string:
+		time_string = time_string.rstrip("0").rstrip(".")
+
+needs to be made 
+else:
+	if '.' in time_string and '+' not in time_string:
+		time_string = time_string.rstrip("0").rstrip(".")
+		
+moreover the way time_string in our case is formatted is not supported in the TIME_FORMAT_LIST and REGEX (lists defined in source code for parse_time)
+
+So I can add that support but I kinda dont know how to register for the 000 in the end of +000 like
+
+'%T': '(?P\d{4})',  #in the REGEX list in source code
+
+# Assuming I replace T for end 000 what goes after colon. Need some help here
+'''
