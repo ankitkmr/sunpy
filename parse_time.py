@@ -7,7 +7,6 @@ from dateutil.parser import parse
 
 
 TIME_FORMAT_LIST = [
-    "%Y-%m-%dT%H:%M:%S.%f+%T",    # Example 2007-05-04T21:08:12.999999
     "%Y-%m-%dT%H:%M:%S.%f",    # Example 2007-05-04T21:08:12.999999
     "%Y/%m/%dT%H:%M:%S.%f",    # Example 2007/05/04T21:08:12.999999
     "%Y-%m-%dT%H:%M:%S.%fZ",   # Example 2007-05-04T21:08:12.999Z
@@ -34,7 +33,6 @@ TIME_FORMAT_LIST = [
 ]
 
 REGEX = {
-    '%T': '(?P<timezone>\d{4})',
     '%Y': '(?P<year>\d{4})',
     '%j': '(?P<dayofyear>\d{3})',
     '%m': '(?P<month>\d{1,2})',
